@@ -1,7 +1,12 @@
 import { ApolloServer, Config } from "apollo-server";
 import mongoose from 'mongoose'
 
-function startServer({ typeDefs, resolvers }: { typeDefs: any, resolvers: any }) {
+export interface GraphqlConfig {
+  typeDefs: any,
+  resolvers: any
+}
+
+function startServer({ typeDefs, resolvers }: GraphqlConfig) {
   mongoose.connect('mongodb://database:27017/voltbras', {
     useNewUrlParser: true,
     useUnifiedTopology: true
