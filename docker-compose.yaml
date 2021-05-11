@@ -8,3 +8,13 @@ services:
       - 4000:4000
     volumes: 
       - .:/home/node/app
+    links: 
+      - database
+
+  database:
+    image: mongo
+    restart: always
+    ports: 
+      - 27017:27017
+    volumes: 
+      - ./mongodb-data:/data/db
