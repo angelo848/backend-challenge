@@ -8,7 +8,7 @@ class NasaAPI extends RESTDataSource {
   }
 
   async getExoplanets(select = '*'): Promise<IExoplanet[]> {
-    const exoplanets = await this.get(`/sync?query=select+${select}+from+ps+where+pl_massj+>+10&format=json`)
+    const exoplanets = await this.get(`/sync?query=select+${select}+from+ps+where+pl_bmassj+>+10&format=json`)
     return exoplanets
   }
 }

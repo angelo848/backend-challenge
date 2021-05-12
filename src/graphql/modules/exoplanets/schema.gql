@@ -221,15 +221,15 @@ type Exoplanet {
   pl_masseerr2: Int
   pl_masselim: Int
   pl_massestr: String
-  pl_bmassj: Int
-  pl_bmassjerr1: Int
-  pl_bmassjerr2: Int
-  pl_bmassjlim: Int
+  pl_bmassj: Float
+  pl_bmassjerr1: Float
+  pl_bmassjerr2: Float
+  pl_bmassjlim: Float
   pl_bmassjstr: String
-  pl_bmasse: Int
-  pl_bmasseerr1: Int
-  pl_bmasseerr2: Int
-  pl_bmasselim: Int
+  pl_bmasse: Float
+  pl_bmasseerr1: Float
+  pl_bmasseerr2: Float
+  pl_bmasselim: Float
   pl_bmassestr: String
   pl_bmassprov: String
   pl_msinij: Float
