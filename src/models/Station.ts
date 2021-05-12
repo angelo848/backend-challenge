@@ -1,6 +1,8 @@
-import mongoose from 'mongoose'
+import { model, Schema, Model, Document } from 'mongoose'
 
-const Schema = new mongoose.Schema({
+import { IStation } from "../types";
+
+const StationSchema: Schema = new Schema({
   exoplanet: {
     type: String,
     required: true
@@ -11,4 +13,6 @@ const Schema = new mongoose.Schema({
   },
 })
 
-export default mongoose.model('Station', Schema)
+const Station: Model<IStation> = model('Station', StationSchema)
+
+export default Station

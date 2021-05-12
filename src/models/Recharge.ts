@@ -1,6 +1,13 @@
-import mongoose from 'mongoose'
+import { model, Schema, Model, Document, Date } from 'mongoose'
 
-const Schema = new mongoose.Schema({
+interface IRecharge extends Document {
+  rechargeStartTime: Date,
+  rechargeEndTime: Date,
+  stationId: Schema.Types.ObjectId,
+  userId: Schema.Types.ObjectId,
+}
+
+const RechargeSchema: Schema = new Schema({
   rechargeStartTime: {
     type: Date,
     required: true
@@ -10,15 +17,17 @@ const Schema = new mongoose.Schema({
     required: true
   },
   stationId: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'Station',
     required: true
   },
   userId: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'User',
     required: true
   }
 })
 
-export default mongoose.model('Recharge', Schema)
+const Recharge: Model<IRecharge> = model('Recharge', RechargeSchema)
+
+export default Recharge
