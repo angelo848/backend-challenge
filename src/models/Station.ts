@@ -7,8 +7,8 @@ const StationSchema: Schema = new Schema({
     type: String,
     required: true
   },
-  location: {
-    type: String,
+  fuel: {
+    type: Number,
     required: true
   },
 })
