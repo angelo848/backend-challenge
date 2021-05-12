@@ -1,5 +1,6 @@
 import { ApolloServer } from "apollo-server";
 import mongoose from 'mongoose'
+import NasaAPI from "./graphql/datasources/nasaSource";
 
 
 function startServer({ typeDefs, resolvers }) {
@@ -8,7 +9,13 @@ function startServer({ typeDefs, resolvers }) {
     useUnifiedTopology: true
   })
 
-  const server = new ApolloServer({ typeDefs, resolvers })
+  const server = new ApolloServer({
+    typeDefs, resolvers, dataSources: () => {
+      return {
+        nasaApi: new NasaAPI()
+      }
+    }
+  })
   server.listen().then(({ url }) => console.log(`server started at ${url}`))
 }
 
