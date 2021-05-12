@@ -1,12 +1,11 @@
-import User from '../../../models/User'
-
-import { IUser } from "../../../types";
+import { findUser, createUser, findAllUsers } from "../../../controllers/user";
 
 export default {
   Query: {
-    user: (_: any, { id }: IUser) => User.findById(id),
+    user: findUser,
+    users: findAllUsers
   },
   Mutation: {
-    createUser: (_: any, { data }: any) => User.create(data)
+    createUser
   }
 }

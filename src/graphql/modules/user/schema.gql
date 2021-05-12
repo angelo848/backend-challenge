@@ -13,9 +13,10 @@ input UserInput {
 }
 
 type Query {
-  user: User!
+  user(id: ID!): User!
+  users: [User]!
 }
 
 type Mutation {
-  createUser(data: UserInput!): User!
+  createUser(userData: UserInput!): User!
 }

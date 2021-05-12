@@ -9,5 +9,5 @@ type Query {
 }
 
 type Mutation {
-  installStation(planetName: String!): [Station]!
+  installStation(planetName: String!, fuelStation: Int!): String!
 }

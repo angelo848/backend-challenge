@@ -1,12 +1,10 @@
-import Station from '../../../models/Station'
-
-import { IStation } from "../../../types";
+import { findAllStations, installStation } from "../../../controllers/station";
 
 export default {
   Query: {
-    stations: () => Station.find(),
+    stations: findAllStations,
   },
   Mutation: {
-    installStation: (_: any, { planetId }: { planetId: string }) => console.log(planetId)
+    installStation
   }
 }
