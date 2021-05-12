@@ -1,3 +1,13 @@
 type Station {
   _id: ID!
+  exoplanet: String!
+  location: String!
+}
+
+type Query {
+  stations: [Station]!
+}
+
+type Mutation {
+  installStation(planetName: String!): [Station]!
 }

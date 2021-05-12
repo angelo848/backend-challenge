@@ -1,4 +1,4 @@
-import { ApolloServer, Config } from "apollo-server";
+import { ApolloServer } from "apollo-server";
 import mongoose from 'mongoose'
 
 export interface GraphqlConfig {

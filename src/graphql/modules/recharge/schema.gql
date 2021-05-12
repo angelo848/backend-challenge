@@ -1,0 +1,15 @@
+type Recharge {
+  _id: ID!
+  rechargeStartTime: String!
+  rechargeEndTime: String!
+  station: Station!
+  user: User!
+}
+
+type Query {
+  stations: [Station]!
+}
+
+# type Mutation {
+#   installStation: (planetName: String!) => [Station]!
+# }
