@@ -1,16 +1,34 @@
 import { Schema, Document } from "mongoose";
+import NasaAPI from "./graphql/datasources/nasaSource";
 
 export interface IUser extends Document {
   _id: Schema.Types.ObjectId,
   name: string,
   email: string,
-  password: string
+  password: string,
+  recharges: IRecharge[]
 }
 
 export interface IStation extends Document {
   _id: Schema.Types.ObjectId,
   exoplanet: string,
-  location: string
+  fuel: number,
+  recharges: IRecharge[]
+}
+
+export interface IRecharge extends Document {
+  _id: Schema.Types.ObjectId
+  rechargeValue: Number,
+  rechargeStartTime: Date,
+  rechargeEndTime: Date,
+  stationId: Schema.Types.ObjectId,
+  userId: Schema.Types.ObjectId,
+}
+
+export interface IDataSources {
+  dataSources: {
+    nasaApi: NasaAPI
+  }
 }
 
 export interface IExoplanet {
