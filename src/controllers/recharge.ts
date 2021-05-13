@@ -13,17 +13,17 @@ export const rechargeUser = async (_: any, { rechargeData }: { rechargeData: IDa
   }
 
   if (station.fuel < rechargeData.rechargeValue) {
-    return new Error('Insuficient fuel in the station')
+    return { error: 'Insuficient fuel in the station' }
   }
 
   const user = await User.findById(rechargeData.userId)
 
   if (!user) {
-    return new Error('Unexistent user')
+    return { error: 'Unexistent user' }
   }
 
-  if (Date.parse(rechargeData.rechargeEndTime) <= new Date().getTime()) {
-    return new Error('Recharge end time it \'s minor than actual time')
+  if (Date.parse(new Date(rechargeData.rechargeEndTime).toString()) <= new Date().getTime()) {
+    return { error: 'Recharge end time it \'s minor than actual time' }
   }
 
   const userIsRecharging = await Recharge.findOne({
@@ -37,11 +37,11 @@ export const rechargeUser = async (_: any, { rechargeData }: { rechargeData: IDa
   })
 
   if (userIsRecharging) {
-    return new Error('The selected user is already recharging')
+    return { error: 'The selected user is already recharging' }
   }
 
   if (stationIsRecharging) {
-    return new Error('The selected station is already recharging')
+    return { error: 'The selected station is already recharging' }
   }
 
   const recharge = await Recharge.create({

@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "test": "npx mocha -r ts-node/register tests/**/*.ts",
+    "test": "npx mocha -r ts-node/register src/tests/**/*.ts",
     "start": "npm run build-dev",
     "build-dev": "nodemon --exec 'ts-node src/index.ts' -e js,ts,gql"
   },
