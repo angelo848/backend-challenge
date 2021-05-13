@@ -66,7 +66,6 @@ export const rechargeUser = async (_: any, { rechargeData }: { rechargeData: IDa
     fuel: station.fuel - rechargeData.rechargeValue
   })
 
-
   return recharge
 }
 
