@@ -355,5 +355,5 @@ type Exoplanet {
 }
 
 type Query {
-  suitablePlanets(select: String): [Exoplanet]!
+  suitablePlanets(select: String, where: String): [Exoplanet]!
 }
