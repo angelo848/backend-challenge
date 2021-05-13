@@ -1,7 +1,12 @@
 type Station {
   _id: ID!
   exoplanet: String!
-  location: String!
+  fuel: Int!
+}
+
+input StationInput {
+  planetName: String!
+  fuelStation: Int!
 }
 
 type Query {
@@ -9,5 +14,5 @@ type Query {
 }
 
 type Mutation {
-  installStation(planetName: String!, fuelStation: Int!): String!
+  installStation(stationData: StationInput!): Station!
 }
