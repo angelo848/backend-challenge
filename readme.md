@@ -27,6 +27,7 @@ com o `mergeTypeDefs`
 - `src/index.ts:` Entrypoint da aplicação, organiza as dependências do startServer`(resolvers e typedefs)` e as injeta
 - `src/startServer.js:` Onde é feita a conexão com o banco de dados e é executado o Apollo GraphQL Server
 - `src/types.ts:` Todos os tipos genéricos estão aqui
+- `src/tests/:` Todos os testes e mocks estão aqui
 
 ***
 
