@@ -1,4 +1,4 @@
-import { model, Schema, Model, Document } from 'mongoose'
+import { model, Schema, Model } from 'mongoose'
 
 import { IStation } from "../types";
 
@@ -11,6 +11,9 @@ const StationSchema: Schema = new Schema({
     type: Number,
     required: true
   },
+  recharges: [
+    { type: Schema.Types.ObjectId, ref: 'Recharge' }
+  ]
 })
 
 const Station: Model<IStation> = model('Station', StationSchema)

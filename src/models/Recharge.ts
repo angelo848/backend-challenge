@@ -1,13 +1,12 @@
-import { model, Schema, Model, Document, Date } from 'mongoose'
+import { model, Schema, Model } from 'mongoose'
 
-interface IRecharge extends Document {
-  rechargeStartTime: Date,
-  rechargeEndTime: Date,
-  stationId: Schema.Types.ObjectId,
-  userId: Schema.Types.ObjectId,
-}
+import { IRecharge } from "../types";
 
 const RechargeSchema: Schema = new Schema({
+  rechargeValue: {
+    type: Number,
+    required: true
+  },
   rechargeStartTime: {
     type: Date,
     required: true

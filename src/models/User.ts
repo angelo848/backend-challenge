@@ -14,7 +14,10 @@ const UserSchema: Schema = new Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+  recharges: [
+    { type: Schema.Types.ObjectId, ref: 'Recharge' }
+  ]
 })
 
 const User: Model<IUser> = model('User', UserSchema)
