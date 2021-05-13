@@ -6,10 +6,17 @@ type Recharge {
   user: User!
 }
 
-type Query {
-  stations: [Station]!
+input RechargeInput {
+  rechargeValue: Int!
+  rechargeEndTime: String!
+  stationId: ID!
+  userId: ID!
 }
 
-# type Mutation {
-#   installStation: (planetName: String!) => [Station]!
-# }
+type Query {
+  recharges: [Recharge]!
+}
+
+type Mutation {
+  recharge(rechargeData: RechargeInput!): Recharge!
+}

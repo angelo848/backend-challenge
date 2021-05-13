@@ -1,4 +1,10 @@
+import { listRecharges, rechargeUser } from "../../../controllers/recharge";
+
 export default {
-  Query: {},
-  Mutation: {}
+  Query: {
+    recharges: listRecharges
+  },
+  Mutation: {
+    recharge: rechargeUser
+  },
 }
