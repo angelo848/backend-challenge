@@ -1,11 +1,7 @@
 import NasaApi from "../graphql/datasources/nasaSource";
 
-interface IDataSources {
-  dataSources: {
-    nasaApi: NasaApi
-  }
-}
+import { IDataSources } from "../types";
 
-export const suitablePlanets = async (_: any, { select }: { select: string }, { dataSources }: IDataSources) => {
-  return dataSources.nasaApi.getExoplanets(select)
+export const suitablePlanets = async (_: any, { select, where }: { select: string, where: string }, { dataSources }: IDataSources) => {
+  return dataSources.nasaApi.getExoplanets(select, where)
 }
