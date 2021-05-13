@@ -31,6 +31,13 @@ export interface IDataSources {
   }
 }
 
+export interface IDataRecharge {
+  rechargeValue: number,
+  rechargeEndTime: string,
+  stationId: Schema.Types.ObjectId,
+  userId: Schema.Types.ObjectId,
+}
+
 export interface IExoplanet {
   pl_name: string;
   pl_letter: string;

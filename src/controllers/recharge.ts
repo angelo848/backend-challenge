@@ -3,18 +3,13 @@ import Recharge from "../models/Recharge"
 import Station from "../models/Station"
 import User from "../models/User"
 
-interface IDataRecharge {
-  rechargeValue: number,
-  rechargeEndTime: string,
-  stationId: Schema.Types.ObjectId,
-  userId: Schema.Types.ObjectId,
-}
+import { IDataRecharge } from "../types";
 
 export const rechargeUser = async (_: any, { rechargeData }: { rechargeData: IDataRecharge }) => {
   const station = await Station.findById(rechargeData.stationId)
 
   if (!station) {
-    return new Error('Unexistent station')
+    return { error: 'Unexistent station' }
   }
 
   if (station.fuel < rechargeData.rechargeValue) {
