@@ -1,4 +1,4 @@
-# Voltbras backend challenge
+# Graphql backend challenge
 
 ## API desenvolvida utilizando docker, typescript e graphql para o desafio backend
 
